@@ -6,12 +6,12 @@ import { Actions } from "../actions";
         images: string[]
     }
 
-interface stateI {
+export interface stateApp {
 	data: Block[],
     pag : number
 }
 
-const initialState: stateI = {
+const initialState: stateApp = {
 	data:[],
     pag:0
 };
@@ -20,7 +20,7 @@ interface actionI {
 	type: string;
 }
 
-export default function dataReducer(state: stateI = initialState, action: AnyAction) {
+export default function dataReducer(state: stateApp = initialState, action: AnyAction) {
 
     switch (action.type) {
         case Actions.FETCH_DATA:
@@ -31,7 +31,7 @@ export default function dataReducer(state: stateI = initialState, action: AnyAct
         case Actions.NEXT:
             return{
                 ...state,
-                pag: state.pag < 3 ? state.pag + 1 : state.pag // state.data.length === 3
+                pag: state.pag < 2 ? state.pag + 1 : state.pag // state.data.length === 3
             }
         case Actions.PREVIOUS:
             return{

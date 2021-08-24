@@ -6,15 +6,14 @@ import { useDispatch } from "react-redux";
 import { Actions } from "../../actions";
 
 
-const NextButton = () => {
-  const Dispatch = useDispatch()
+interface ButtonProps extends TouchableOpacityProps {
+  currentPage: number;
+}
+const NextButton = ({currentPage,onPress}:ButtonProps) => {
   
-  const onPresss = ()=>{
-    Dispatch({type:Actions.NEXT})
-  }
   return(
 
-  <ButtonContainer onPress={onPresss}>
+  <ButtonContainer onPress={onPress} disabled={currentPage < 2 ? false : true}>
     <FontAwesome5 name='chevron-right' size={12} color='gray'/>
   </ButtonContainer>
   );

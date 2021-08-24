@@ -8,6 +8,7 @@ export const ButtonContainer = styled.TouchableOpacity`
   border:1px solid gray;
   justify-content: center;
   align-items: center;
+  
 `;
 export const ButtonText = styled.Text`
   color: white;
