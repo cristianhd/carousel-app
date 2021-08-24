@@ -4,6 +4,6 @@ export const Container = styled.View`
     position: relative;
     background: white;
     height: 500px;
-    padding: 20px;
-    margin: 20px;
+    padding: 10px;
+    margin: 50px;
 `;
