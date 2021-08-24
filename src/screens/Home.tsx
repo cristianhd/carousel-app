@@ -3,9 +3,21 @@ import { useEffect } from "react";
 import { View, Text,Image } from "react-native";
 import { Container } from "./Styled";
 import axios from 'axios';
+import { getData } from "../actions";
+import { useDispatch } from "react-redux";
 
 const Home = ()=>{
-   
+    interface Block {
+        title: string,
+        images: []
+    }
+    const Dispatch = useDispatch();
+    const fetchData = ()=>Dispatch(getData())
+
+    
+    useEffect(()=>{
+        fetchData()
+    },[])
 
     return(
         <Container>
