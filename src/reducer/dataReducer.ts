@@ -1,7 +1,12 @@
 import { AnyAction } from "redux";
 
+ interface Block {
+        title: string,
+        images: string[]
+    }
+
 interface stateI {
-	data: any[];
+	data: Block[]
 }
 
 const initialState: stateI = {
@@ -18,7 +23,7 @@ export default function dataReducer(state: stateI = initialState, action: AnyAct
         case 'FETCH_DATA':
             return{
                 data: action.payload
-            };    
+            };
         default:
             return state;
     }

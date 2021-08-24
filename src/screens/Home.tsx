@@ -1,18 +1,20 @@
 import React from "react";
 import { useEffect } from "react";
 import { View, Text,Image, Dimensions } from "react-native";
-import { Container } from "./Styled";
+import { Container, ContainerText, Wrapper } from "./Styled";
 import axios from 'axios';
 import { getData } from "../actions";
 import { useDispatch } from "react-redux";
 import { defaultData } from "../../api/defaultData";
+import NextButton from "../components/Buttons/NextButton";
+import PreviousButton from "../components/Buttons/PreviousButton";
 
 const Home = ()=>{
     interface Block {
         title: string,
         images: string[]
     }
-    const {width} = Dimensions.get("window")
+    const {width} = Dimensions.get("screen")
     const heigth = width
     const Dispatch = useDispatch();
     const fetchData = ()=>Dispatch(getData())
@@ -37,10 +39,23 @@ const Home = ()=>{
 
     return(
         <Container>
+            <Wrapper>
+
+            <NextButton/>
+
+            
             <Image
-                style={{height:400}}
+                style={{height:400,width:'80%'}}
                 source={{uri:data[0].images[pag]}}
             ></Image>
+            <PreviousButton/>
+            </Wrapper>
+            <ContainerText>
+
+            <Text>{data[0].title}</Text>
+            </ContainerText>
+            
+            
         </Container>
     )
 }
