@@ -22,7 +22,7 @@ app.use(
 		allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept'],
 	})
 );
-app.use('/',routes)
+app.use('/data',routes)
 interface error {
 	status: number;
 	message: string;
