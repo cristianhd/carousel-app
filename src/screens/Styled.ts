@@ -24,6 +24,6 @@ display: flex;
 `;
 
 export const ContainerText = styled.View`
-    padding: 20px;
+    padding: 5px 40px 10px 40px;
     
 `;

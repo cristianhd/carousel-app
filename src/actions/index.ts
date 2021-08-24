@@ -1,6 +1,11 @@
 import axios from 'axios';
 import { Dispatch } from 'redux';
 
+export enum Actions {
+	FETCH_DATA = 'FETH_DATA',
+	NEXT= 'NEXT',
+	PREVIOUS = 'PREVIOUS'
+}
 const url = 'https://localhost:3001/data';
 
 export const getData = () => {

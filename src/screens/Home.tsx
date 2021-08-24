@@ -28,7 +28,7 @@ const Home = ()=>{
         return Math.floor(Math.random() * (max - min)) + min;
     }
 
-    const pag = randomInt(0,3) // random number incluide 0 and excluide 3 [0,3)
+    const selectorImage = randomInt(0,3) // select random number incluide 0 and excluide 3 [0,3)
 
 
 
@@ -46,13 +46,14 @@ const Home = ()=>{
             
             <Image
                 style={{height:400,width:'80%'}}
-                source={{uri:data[0].images[pag]}}
+                source={{uri:data[0].images[selectorImage]}}
                 ></Image>
                 <NextButton/>
             </Wrapper>
             <ContainerText>
 
             <Text>{data[0].title}</Text>
+            <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit.</Text>
             </ContainerText>
             
             
