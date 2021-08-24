@@ -3,7 +3,11 @@ export const ButtonContainer = styled.TouchableOpacity`
   position: relative;
   width: 20px;
   height: 20px;
-  background: black;
+  background: white;
+  border-radius: 10px;
+  border:1px solid gray;
+  justify-content: center;
+  align-items: center;
 `;
 export const ButtonText = styled.Text`
   color: white;

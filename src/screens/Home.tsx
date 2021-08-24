@@ -41,14 +41,14 @@ const Home = ()=>{
         <Container>
             <Wrapper>
 
-            <NextButton/>
 
+            <PreviousButton/>
             
             <Image
                 style={{height:400,width:'80%'}}
                 source={{uri:data[0].images[pag]}}
-            ></Image>
-            <PreviousButton/>
+                ></Image>
+                <NextButton/>
             </Wrapper>
             <ContainerText>
 

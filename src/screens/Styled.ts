@@ -1,21 +1,24 @@
+import { Dimensions } from 'react-native';
 import styled from 'styled-components/native'
+const {width} = Dimensions.get("screen")
 
 export const Container = styled.View`
     position: relative;
     background: white;
     height: 500px;
-    padding: 10px 5px 20px 5px;
+    width: auto;
     margin: 50px;
-    justify-content: space-around;
+    
     
     
     
 `;
 
 export const Wrapper = styled.View`
+padding: 10px;
 display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 
 `;
