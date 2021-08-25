@@ -4,19 +4,13 @@ export const ButtonContainer = styled.TouchableOpacity`
   width: 23px;
   height: 300px;
   background: white;
- 
   justify-content: center;
   align-items: center;
-  
 `;
 export const ButtonText = styled.Text`
   color: white;
-  
-
-  
   text-align: center;
 `;
-
 
 export const StyleText = styled.Text`
   font-size: 20px;
