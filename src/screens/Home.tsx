@@ -9,6 +9,9 @@ import { defaultData } from "../../api/defaultData";
 import NextButton from "../components/Buttons/NextButton";
 import PreviousButton from "../components/Buttons/PreviousButton";
 import { stateApp } from "../reducer/dataReducer";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { ApplicationState } from "../reducer";
+import { persistor } from "../store";
 
 const Home = ()=>{
     interface Block {
@@ -16,15 +19,15 @@ const Home = ()=>{
         images: string[]
     }
 
-    interface stateReducer {
-        dataReducer:stateApp
-    } 
+    
     const {width} = Dimensions.get("screen");
     const heigth = width;
     const Dispatch = useDispatch();
-    const {dataReducer} = useSelector((state:stateReducer)=>state)
+    const {dataReducer} = useSelector((state:ApplicationState)=>state)
     const fetchData = ()=>Dispatch(getData())
     const {pag} = dataReducer
+   
+    
    
 
     type data = Block[];
@@ -48,9 +51,7 @@ const Home = ()=>{
     }
 
 
-    // useEffect(()=>{
-    //     fetchData()
-    // },[])
+   
 
     return(
         <Container>
@@ -59,22 +60,31 @@ const Home = ()=>{
 
             <PreviousButton currentPage={pag} onPress={onPressPre}/>
             
-                
+                {
+                    data[pag] && (
+
+                        <Image
+                            style={{height:400,width:'85%'}}
+                            source={{uri:data[pag].images[selectorImage]}}
+                            ></Image>
+                    )
+                }
                     
-                    <Image
-                        style={{height:400,width:'85%'}}
-                        source={{uri:data[pag].images[selectorImage]}}
-                        ></Image>
              
             
             
                 <NextButton currentPage={pag} onPress={onPressNext}/>
             </Wrapper>
-            <ContainerText>
+                {
+                    data[pag] && (
+                        <ContainerText>
+                        
+                                    <Text>{data[pag].title}</Text>
+                                    <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit.</Text>
 
-            <Text>{data[pag].title}</Text>
-            <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit.</Text>
-            </ContainerText>
+                                    </ContainerText>
+                    )
+                }
             
             
         </Container>
