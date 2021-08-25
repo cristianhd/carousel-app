@@ -14,7 +14,7 @@ const NextButton = ({currentPage,onPress}:ButtonProps) => {
   return(
 
   <ButtonContainer onPress={onPress} disabled={currentPage < 2 ? false : true}>
-    <FontAwesome5 name='chevron-right' size={12} color='gray'/>
+    <FontAwesome5 name='chevron-right' size={20} color='gray'/>
   </ButtonContainer>
   );
 }

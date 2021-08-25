@@ -12,6 +12,7 @@ import { stateApp } from "../reducer/dataReducer";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { ApplicationState } from "../reducer";
 import { persistor } from "../store";
+import { StyleText } from "../components/Buttons/StyledButtons";
 
 const Home = ()=>{
     interface Block {
@@ -50,7 +51,10 @@ const Home = ()=>{
 
     }
 
-
+useEffect(()=>{
+   
+    fetchData()
+},[])
    
 
     return(
@@ -79,8 +83,9 @@ const Home = ()=>{
                     data[pag] && (
                         <ContainerText>
                         
-                                    <Text>{data[pag].title}</Text>
-                                    <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit.</Text>
+                                    <StyleText>{data[pag].title}</StyleText>
+
+                                    <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam iste quisquam magni, rerum quibusdam hic doloribus esse aperiam!</Text>
 
                                     </ContainerText>
                     )

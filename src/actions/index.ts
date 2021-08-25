@@ -4,18 +4,23 @@ import { Dispatch } from 'redux';
 export enum Actions {
 	FETCH_DATA = 'FETH_DATA',
 	NEXT= 'NEXT',
-	PREVIOUS = 'PREVIOUS'
+	PREVIOUS = ''
 }
-const url = 'https://localhost:3001/data';
+const url = 'http://localhost:3001/data';
 
 export const getData = () => {
 	return async (dispatch:Dispatch) => {
-		const response = await axios.get(url);
-        console.log(response);
+		axios.get(url).then(response=>{
+
+			dispatch({
+				type: 'FETCH_DATA',
+				payload: response.data,
+			});
+			console.log(response);
+		}).catch(error=>{
+			console.log(error);
+			
+		})
         
-		dispatch({
-			type: 'FETCH_DATA',
-			payload: response.data,
-		});
 	};
 };

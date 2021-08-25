@@ -5,9 +5,10 @@ const {width} = Dimensions.get("screen")
 export const Container = styled.View`
     position: relative;
     background: white;
-    height: 500px;
+    height: 550px;
     width: auto;
-    margin: 50px;
+    margin: 30px;
+    border-radius: 20px;
     
     
     
@@ -15,7 +16,7 @@ export const Container = styled.View`
 `;
 
 export const Wrapper = styled.View`
-padding: 10px;
+padding: 20px 0px 10px 0px;
 display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -24,6 +25,6 @@ display: flex;
 `;
 
 export const ContainerText = styled.View`
-    padding: 5px 40px 10px 40px;
+    padding: 5px 40px 10px 30px;
     
 `;
