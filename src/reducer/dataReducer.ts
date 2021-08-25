@@ -5,19 +5,18 @@ interface Block {
   title: string;
   images: string[];
 }
-
-export interface stateApp {
+export interface stateI {
   data: Block[];
   pag: number;
 }
 
-const initialState: stateApp = {
+const initialState: stateI = {
   data: [],
   pag: 0,
 };
 
 export default function dataReducer(
-  state: stateApp = initialState,
+  state: stateI = initialState,
   action: AnyAction
 ) {
   switch (action.type) {
