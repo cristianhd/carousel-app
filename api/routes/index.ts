@@ -3,8 +3,8 @@ import { defaultData } from "../defaultData";
 
 const router = Router();
 
-router.get('/data',(req:Request,res:Response)=>{
-    res.status(200).send(defaultData)
-})
+router.get("/data", (req: Request, res: Response) => {
+  res.status(200).send(defaultData);
+});
 
 export default router;
