@@ -9,7 +9,7 @@ interface ProgressProps {
     pag: number
 }
 const ProgressCarrousel = ({Blocks,pag}: ProgressProps)=>{
-    console.log(Blocks,pag);
+    
     
     return(
         <Container>

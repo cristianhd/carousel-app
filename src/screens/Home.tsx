@@ -29,7 +29,7 @@ const Home = ()=>{
     const heigth = width;
     const Dispatch = useDispatch();
     const {dataReducer} = useSelector((state:ApplicationState)=>state)
-    const fetchData = ()=>Dispatch(getData())
+    const fetchData = async()=> await Dispatch(getData())
     const {pag} = dataReducer
    
     

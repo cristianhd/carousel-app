@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Dispatch } from 'redux';
 
 export enum Actions {
-	FETCH_DATA = 'FETH_DATA',
+	FETCH_DATA = 'FETCH_DATA',
 	NEXT= 'NEXT',
 	PREVIOUS = ''
 }
@@ -16,7 +16,6 @@ export const getData = () => {
 				type: 'FETCH_DATA',
 				payload: response.data,
 			});
-			console.log(response);
 		}).catch(error=>{
 			console.log(error);
 			
