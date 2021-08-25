@@ -6,7 +6,7 @@ export enum Actions {
 	NEXT= 'NEXT',
 	PREVIOUS = ''
 }
-const url = 'http://localhost:3001/data';
+const url = 'http://10.0.2.2:3001/data';
 
 export const getData = () => {
 	return async (dispatch:Dispatch) => {
@@ -16,6 +16,7 @@ export const getData = () => {
 				type: 'FETCH_DATA',
 				payload: response.data,
 			});
+			
 		}).catch(error=>{
 			console.log(error);
 			

@@ -16,6 +16,8 @@ import { StyleText } from "../components/Buttons/StyledButtons";
 import ProgressCarrousel from "../components/Buttons/ProgressCarousel/ProgressCarousel";
 import { FontAwesome } from '@expo/vector-icons';
 import { DescriptionText } from "../components/Buttons/ProgressCarousel/Styled";
+
+
 interface Block {
     title: string,
     images: string[]
@@ -29,36 +31,39 @@ const Home = ()=>{
     const heigth = width;
     const Dispatch = useDispatch();
     const {dataReducer} = useSelector((state:ApplicationState)=>state)
-    const fetchData = async()=> await Dispatch(getData())
     const {pag} = dataReducer
-   
     
-   
+    
+    
+    
+    
+    const data:data = dataReducer.data
 
-
-    const data = defaultData
+    
+    
     
     const randomInt = (min: number,max:number)=>{
         return Math.floor(Math.random() * (max - min)) + min;
     }
 
     const selectorImage = randomInt(0,3) // select random number incluide 0 and excluide 3 [0,3)
-
+    
     const onPressNext = ()=>{
         
         Dispatch({type:Actions.NEXT})
-      }
+    }
     
     const onPressPre = ()=>{
         Dispatch({type:Actions.PREVIOUS})
-
+        
     }
-
-useEffect(()=>{
-   
-    fetchData()
+    
+    useEffect(()=>{
+        
+     Dispatch(getData())
 },[])
-   
+  
+if(data.length > 0){
 
     return(
         <Container>
@@ -67,8 +72,7 @@ useEffect(()=>{
 
             <PreviousButton currentPage={pag} onPress={onPressPre}/>
             
-                {
-                    data[pag] && (
+               
                         
                             
                             <Image
@@ -80,8 +84,8 @@ useEffect(()=>{
                                 </Image>
                       
 
-                    )
-                }
+                    
+                
                     
              
             
@@ -89,9 +93,8 @@ useEffect(()=>{
                 <NextButton currentPage={pag} onPress={onPressNext}/>
             </Wrapper>
                             <ProgressCarrousel Blocks={data} pag={pag}></ProgressCarrousel>
-                {
-                    data[pag] && (
-                        <ContainerText>
+              
+                         <ContainerText>
                             <WrapperTitle>
                                     <StyleText>{data[pag].title}</StyleText>
                                     <FontAwesome name="camera" size={24} color="black" />
@@ -101,13 +104,18 @@ useEffect(()=>{
 
                                     <DescriptionText>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam iste quisquam magni, rerum quibusdam hic doloribus esse aperiam! 😎</DescriptionText>
                                     
-                                    </ContainerText>
-                    )
-                }
-            
+                                    </ContainerText> 
+                    
+                
             
         </Container>
     )
+}
+else{
+    return(
+        <Text>Loading...</Text>
+    )
+}
 }
 
 export default Home;
