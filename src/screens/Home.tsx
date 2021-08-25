@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { View, Text,Image, Dimensions, GestureResponderEvent } from "react-native";
-import { Container, ContainerText, Wrapper } from "./Styled";
+import { Container, ContainerText, Wrapper, WrapperTitle } from "./Styled";
 import axios from 'axios';
 import { Actions, getData } from "../actions";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,12 +13,16 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { ApplicationState } from "../reducer";
 import { persistor } from "../store";
 import { StyleText } from "../components/Buttons/StyledButtons";
+import ProgressCarrousel from "../components/Buttons/ProgressCarousel/ProgressCarousel";
+import { FontAwesome } from '@expo/vector-icons';
+import { DescriptionText } from "../components/Buttons/ProgressCarousel/Styled";
+interface Block {
+    title: string,
+    images: string[]
+}
+export type data = Block[];
 
 const Home = ()=>{
-    interface Block {
-        title: string,
-        images: string[]
-    }
 
     
     const {width} = Dimensions.get("screen");
@@ -31,7 +35,6 @@ const Home = ()=>{
     
    
 
-    type data = Block[];
 
     const data = defaultData
     
@@ -66,11 +69,17 @@ useEffect(()=>{
             
                 {
                     data[pag] && (
+                        
+                            
+                            <Image
+                                style={{height:400,width:'85%'}}
+                                source={{uri:data[pag].images[selectorImage]}}
+                                >
 
-                        <Image
-                            style={{height:400,width:'85%'}}
-                            source={{uri:data[pag].images[selectorImage]}}
-                            ></Image>
+
+                                </Image>
+                      
+
                     )
                 }
                     
@@ -79,14 +88,19 @@ useEffect(()=>{
             
                 <NextButton currentPage={pag} onPress={onPressNext}/>
             </Wrapper>
+                            <ProgressCarrousel Blocks={data} pag={pag}></ProgressCarrousel>
                 {
                     data[pag] && (
                         <ContainerText>
-                        
+                            <WrapperTitle>
                                     <StyleText>{data[pag].title}</StyleText>
+                                    <FontAwesome name="camera" size={24} color="black" />
 
-                                    <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam iste quisquam magni, rerum quibusdam hic doloribus esse aperiam!</Text>
+                            </WrapperTitle>
+                        
 
+                                    <DescriptionText>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam iste quisquam magni, rerum quibusdam hic doloribus esse aperiam! 😎</DescriptionText>
+                                    
                                     </ContainerText>
                     )
                 }
